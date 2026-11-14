@@ -170,14 +170,12 @@ export const StudentLoginView: React.FC<StudentLoginViewProps> = ({
               )}
               <div>
                 <p className="text-xs font-semibold tracking-wide text-[#2563EB]">
-                  Asesmen Berbasis Komputer (CBT)
+                  Computer Based Test (CBT)
                 </p>
                 <h1 className="mt-0.5 text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl text-balance">
                   {settings.judul}
                 </h1>
                 <div className="mt-1.5 flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-slate-600">
-                  <span className="font-medium text-slate-800">Mata Pelajaran: {settings.mataPelajaran}</span>
-                  <span aria-hidden="true">·</span>
                   <span className="font-medium text-slate-800">Materi: {settings.materi}</span>
                   <span aria-hidden="true">·</span>
                   <span>{settings.jumlahSoal} Soal</span>
@@ -232,9 +230,6 @@ export const StudentLoginView: React.FC<StudentLoginViewProps> = ({
                   </span>
                 </div>
               </div>
-              <p className="mt-3 text-xs text-slate-500">
-                Catatan teknis: deteksi perpindahan tab menggunakan browser Visibility API dan tidak dapat menjamin pendeteksian seluruh aktivitas di luar browser.
-              </p>
             </div>
           </div>
 
@@ -255,7 +250,7 @@ export const StudentLoginView: React.FC<StudentLoginViewProps> = ({
         <div className="lg:col-span-5 rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 flex flex-col justify-center">
           <div>
             <p className="text-xs font-semibold tracking-wide text-[#2563EB]">
-              Masuk Peserta Didik
+              Login Murid
             </p>
             <h2 className="mt-1 text-xl font-bold text-slate-900">
               Identitas & Token Ujian

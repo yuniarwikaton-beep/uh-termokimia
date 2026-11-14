@@ -4,7 +4,7 @@ export const DEFAULT_EXAM_ID = 'uh-kimia-termokimia-2026';
 
 export const DEFAULT_EXAM_SETTINGS: ExamSettings = {
   examId: DEFAULT_EXAM_ID,
-  judul: 'Ulangan Harian Online — Kimia',
+  judul: 'Daily Assessment - Kimia',
   mataPelajaran: 'Kimia',
   materi: 'Termokimia',
   namaGuru: 'Guru Pengampu Kimia SMA',
