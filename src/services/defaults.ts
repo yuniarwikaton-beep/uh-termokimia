@@ -9,7 +9,7 @@ export const DEFAULT_EXAM_SETTINGS: ExamSettings = {
   materi: 'Termokimia',
   namaGuru: 'Guru Pengampu Kimia SMA',
   token: 'KIMIA2026',
-  durasiMenit: 60,
+  durasiMenit: 90,
   kkm: 78,
   jumlahSoal: 30,
   acakSoal: true,

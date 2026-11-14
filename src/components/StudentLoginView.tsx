@@ -157,8 +157,8 @@ export const StudentLoginView: React.FC<StudentLoginViewProps> = ({
             <div className="flex items-center gap-4">
               {!logoError ? (
                 <img
-                  src="/src/assets/images/school_chemistry_emblem_1794632280120.jpg"
-                  alt="Logo Sekolah Kimia"
+                  src="/assets/aistudio/logo_MAB_bulat_43c8f5a1.png"
+                  alt="Logo Ar-Rohmah Bogor"
                   referrerPolicy="no-referrer"
                   onError={() => setLogoError(true)}
                   className="h-16 w-16 rounded-xl border border-slate-200 object-cover shrink-0"
@@ -378,16 +378,6 @@ export const StudentLoginView: React.FC<StudentLoginViewProps> = ({
               )}
             </button>
           </form>
-
-          <div className="mt-6 rounded-xl border border-slate-200 bg-[#F3F4F6]/60 p-3.5 text-xs text-slate-600">
-            <p className="font-semibold text-slate-700">Daftar NIS Contoh untuk Uji Coba:</p>
-            <p className="mt-1 font-mono-tabular text-slate-600">
-              {students
-                .slice(0, 4)
-                .map((s) => `${s.nis} (${s.nama.split(' ')[0]})`)
-                .join(' · ')}
-            </p>
-          </div>
         </div>
       </div>
 

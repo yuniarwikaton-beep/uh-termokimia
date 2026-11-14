@@ -1551,7 +1551,7 @@ export const TeacherDashboard: React.FC<TeacherDashboardProps> = ({
                     onChange={(e) =>
                       setSettingsDraft((p) => ({
                         ...p,
-                        durasiMenit: Number(e.target.value) || 60,
+                        durasiMenit: Number(e.target.value) || 90,
                       }))
                     }
                     className="mt-1 w-full rounded-xl border border-slate-300 px-2.5 py-2 text-sm font-mono-tabular"
