@@ -1,0 +1,1282 @@
+Bertindaklah sebagai Senior Front-End Developer, UI/UX Designer, dan Web Application Engineer yang ahli dalam membangun aplikasi Computer Based Test (CBT).
+
+Buat sebuah website bernama:
+
+**APLIKASI ULANGAN HARIAN ONLINE — KIMIA**
+
+Website digunakan untuk pelaksanaan asesmen atau ulangan harian mata pelajaran Kimia tingkat SMA dengan materi Termokimia.
+
+Buat aplikasi dengan desain modern, profesional, responsif, ringan, mudah digunakan, dan kompatibel dengan Chromebook.
+
+Jangan hanya membuat mockup atau desain statis. Buat aplikasi yang seluruh fitur utamanya benar-benar berfungsi.
+
+## 2. TEKNOLOGI YANG DIGUNAKAN
+
+Gunakan teknologi berikut:
+
+- HTML5 untuk struktur halaman.
+- Tailwind CSS untuk desain antarmuka.
+- JavaScript ES6 untuk seluruh interaksi.
+- LocalStorage untuk penyimpanan otomatis data ujian.
+- IndexedDB jika diperlukan untuk penyimpanan data lokal yang lebih besar.
+- jsPDF atau library sejenis untuk membuat dokumen PDF.
+- SheetJS atau library sejenis untuk ekspor rekapitulasi Excel.
+- Lucide Icons untuk ikon antarmuka.
+
+Jika aplikasi dibuat dalam satu proyek front-end, susun kode dengan rapi dan modular.
+
+Pastikan aplikasi dapat dijalankan melalui browser Chromebook.
+
+Jangan menggunakan komponen yang terlalu berat atau animasi berlebihan.
+
+## 3. IDENTITAS DAN DESAIN WEBSITE
+
+Gunakan konsep desain Clean & Professional UI.
+
+Tema warna:
+- Biru utama: #2563EB.
+- Biru muda: #EFF6FF.
+- Putih: #FFFFFF.
+- Abu-abu: #F3F4F6.
+- Hijau: #16A34A.
+- Kuning: #EAB308.
+- Merah: #DC2626.
+
+Karakter desain:
+- Modern dan minimalis.
+- Tampilan profesional tetapi tetap menarik bagi siswa SMA.
+- Font mudah dibaca.
+- Tombol memiliki ukuran nyaman untuk Chromebook.
+- Card dengan sudut membulat.
+- Navigasi sederhana.
+- Ikon mudah dikenali.
+- Responsif untuk laptop, Chromebook, tablet, dan ponsel.
+
+Buat halaman dengan konsistensi desain yang sama.
+
+## 4. HALAMAN LOGIN SISWA
+
+Buat halaman login siswa dengan tampilan modern.
+
+Komponen:
+1. Logo atau ikon sekolah.
+2. Judul Aplikasi Ulangan Harian Online.
+3. Keterangan mata pelajaran Kimia.
+4. Materi: Termokimia.
+5. Input NIS.
+6. Input Token Ujian.
+7. Tombol "Mulai Ulangan".
+8. Informasi petunjuk pelaksanaan ujian.
+
+Ketentuan:
+- Siswa harus memasukkan NIS yang terdaftar.
+- Token ujian harus sesuai dengan token yang ditentukan guru.
+- Validasi input sebelum masuk ke halaman ujian.
+- Nama siswa ditampilkan berdasarkan data siswa.
+- Cegah siswa memulai ujian berulang kali tanpa melanjutkan sesi sebelumnya.
+- Jika ditemukan sesi ujian yang belum selesai, tampilkan pilihan:
+  "Lanjutkan Pengerjaan" atau "Mulai Sesi Baru" sesuai aturan guru.
+
+## 5. DASHBOARD GURU
+
+Buat halaman dashboard khusus guru yang terpisah dari halaman siswa.
+
+Login guru:
+- Gunakan PIN internal: guru1234.
+- Jangan menampilkan PIN pada halaman login.
+- Jangan menampilkan PIN sebagai teks, petunjuk, atau informasi di dashboard.
+- Jangan menyimpan PIN sebagai teks yang terlihat di antarmuka.
+- Untuk versi demo front-end, gunakan validasi PIN secara internal.
+- Berikan catatan bahwa autentikasi produksi wajib dilakukan di backend karena PIN yang ditanam di JavaScript dapat diperiksa melalui browser.
+
+Fitur dashboard guru:
+
+### A. Ringkasan Dashboard
+
+Tampilkan kartu statistik:
+- Total siswa terdaftar.
+- Jumlah siswa sudah mengerjakan.
+- Jumlah siswa belum mengerjakan.
+- Jumlah siswa sudah mengumpulkan.
+- Jumlah siswa lulus KKM.
+- Jumlah siswa remedial.
+- Rata-rata nilai kelas.
+
+### B. Manajemen Siswa
+
+Guru dapat:
+- Menambahkan siswa.
+- Mengedit data siswa.
+- Menghapus data siswa.
+- Mengimpor data siswa.
+- Melihat NIS dan nama siswa.
+
+Sediakan data siswa dalam format yang mudah dikelola.
+
+### C. Pengaturan Ujian
+
+Guru dapat mengatur:
+- Nama ujian.
+- Mata pelajaran.
+- Materi.
+- Token ujian.
+- Durasi ujian.
+- KKM.
+- Jumlah soal.
+- Pengacakan soal.
+- Pengaturan sanksi perpindahan tab.
+- Waktu mulai dan selesai ujian.
+
+Tetapkan KKM awal sebesar 78.
+
+### D. Monitoring Ujian
+
+Tampilkan tabel monitoring:
+
+- Nomor.
+- Nama siswa.
+- NIS.
+- Status pengerjaan.
+- Jumlah soal dijawab.
+- Jumlah soal kosong.
+- Jumlah pelanggaran tab.
+- Nilai sementara jika diizinkan.
+- Status pengumpulan.
+- Status sinkronisasi.
+
+Status siswa:
+- Belum mulai.
+- Sedang mengerjakan.
+- Sudah mengumpulkan.
+- Tersimpan lokal.
+- Menunggu sinkronisasi.
+
+### E. Rekapitulasi Nilai
+
+Buat halaman rekapitulasi dengan kolom:
+
+- Nomor.
+- Nama siswa.
+- NIS.
+- Nilai akhir.
+- Jawaban benar.
+- Jawaban salah.
+- Jawaban kosong.
+- Jumlah pelanggaran.
+- Status kelulusan.
+- Status pengumpulan.
+
+Ketentuan nilai:
+- Nilai 78 atau lebih: LULUS.
+- Nilai di bawah 78: REMIDIAL.
+
+Berikan warna:
+- Hijau untuk LULUS.
+- Merah untuk REMIDIAL.
+
+### F. Ekspor Dokumen
+
+Sediakan tombol:
+1. Download Rekapitulasi PDF.
+2. Download Rekapitulasi Excel.
+3. Download Hasil Siswa PDF.
+4. Download Semua Hasil Siswa.
+
+Dokumen PDF rekapitulasi harus memiliki:
+- Judul asesmen.
+- Mata pelajaran.
+- Materi.
+- Tanggal ujian.
+- Nama guru jika tersedia.
+- Tabel seluruh peserta.
+- Nilai akhir.
+- Keterangan LULUS atau REMIDIAL.
+- Ringkasan statistik kelas.
+
+Setiap siswa yang telah mengumpulkan ujian harus memiliki dokumen hasil asesmen tersendiri yang dapat diunduh oleh guru.
+
+Nama file dibuat otomatis, misalnya:
+Hasil_Ujian_NamaSiswa_NIS.pdf
+
+Dokumen hasil setiap siswa berisi:
+- Identitas siswa.
+- Nama ujian.
+- Mata pelajaran.
+- Tanggal pengerjaan.
+- Nilai akhir.
+- KKM.
+- Keterangan kelulusan.
+- Jumlah jawaban benar.
+- Jumlah jawaban salah.
+- Jumlah jawaban kosong.
+- Daftar jawaban siswa.
+- Status sinkronisasi.
+- Jumlah pelanggaran.
+- Pembahasan setiap soal jika diaktifkan guru.
+
+Jangan membuat tombol unduh yang hanya berupa hiasan. Seluruh tombol ekspor harus benar-benar menghasilkan file.
+
+## 6. HALAMAN UJIAN SISWA
+
+Buat antarmuka ujian yang sederhana, fokus, dan tidak membingungkan siswa.
+
+### A. Header Ujian
+
+Tampilkan:
+- Nama siswa.
+- NIS.
+- Mata pelajaran.
+- Materi Termokimia.
+- Countdown timer.
+- Status koneksi internet.
+- Status penyimpanan otomatis.
+
+Contoh status koneksi:
+- ONLINE (hijau).
+- OFFLINE — TERSIMPAN LOKAL (kuning).
+- MENUNGGU SINKRONISASI (oranye).
+
+### B. Countdown Timer
+
+Buat timer mundur berdasarkan durasi yang ditetapkan guru.
+
+Ketentuan:
+- Timer berjalan otomatis setelah ujian dimulai.
+- Timer tetap berjalan jika browser ditutup atau Chromebook restart.
+- Waktu tersisa disimpan secara otomatis.
+- Gunakan timestamp agar waktu tidak kembali ke awal ketika halaman dimuat ulang.
+- Ketika waktu habis, sistem otomatis mengunci jawaban dan mengumpulkan ujian.
+- Berikan peringatan ketika waktu tersisa 10 menit, 5 menit, dan 1 menit.
+
+### C. Navigasi Nomor Soal
+
+Buat sidebar berisi nomor soal 1–30.
+
+Gunakan indikator warna:
+- Hijau: sudah dijawab.
+- Abu-abu: belum dijawab.
+- Kuning: ragu-ragu.
+- Merah: pelanggaran atau status khusus jika diperlukan.
+
+Nomor soal harus bisa diklik untuk berpindah soal.
+
+Tambahkan legenda warna agar siswa memahami setiap indikator.
+
+### D. Area Soal
+
+Tampilkan:
+- Nomor soal.
+- Jenis soal.
+- Teks soal.
+- Gambar atau tabel jika terdapat dalam soal.
+- Pilihan jawaban.
+- Area input untuk soal isian singkat.
+
+Jenis soal:
+1. Pilihan Ganda: nomor 1–9.
+2. Pilihan Ganda Kompleks: nomor 10–17.
+3. Benar-Salah: nomor 18–25.
+4. Isian Singkat: nomor 26–30.
+
+Aturan input:
+- Pilihan ganda menggunakan radio button.
+- Pilihan ganda kompleks menggunakan checkbox.
+- Benar-salah menggunakan dua pilihan.
+- Isian singkat menggunakan input teks.
+
+Pilihan jawaban harus jelas dan mudah diklik.
+
+### E. Tombol Navigasi
+
+Sediakan:
+- Sebelumnya.
+- Ragu-ragu.
+- Selanjutnya.
+
+Pada soal terakhir tampilkan tombol:
+"KIRIM JAWABAN".
+
+Ketika diklik, munculkan modal konfirmasi:
+
+"Apakah Anda yakin ingin mengumpulkan ujian?"
+
+Tampilkan:
+- Jumlah soal sudah dijawab.
+- Jumlah soal belum dijawab.
+- Jumlah soal ragu-ragu.
+
+Tombol:
+- Kembali ke Ujian.
+- Ya, Kumpulkan.
+
+Setelah dikumpulkan, jawaban tidak boleh dapat diubah kembali.
+
+## 7. FITUR FULLSCREEN WAJIB
+
+Tambahkan fitur fullscreen.
+
+Ketentuan:
+- Ketika siswa memulai ujian, tampilkan instruksi untuk masuk fullscreen.
+- Gunakan Fullscreen API browser.
+- Sediakan tombol "Masuk Fullscreen".
+- Jika siswa keluar dari fullscreen, tampilkan peringatan.
+- Catat kejadian keluar fullscreen.
+- Minta siswa kembali ke fullscreen sebelum melanjutkan sesuai kebijakan ujian.
+
+Perhatikan bahwa browser hanya mengizinkan permintaan fullscreen melalui tindakan pengguna. Jangan mengklaim bahwa fullscreen dapat dipaksakan tanpa interaksi pengguna.
+
+## 8. DETEKSI PERPINDAHAN TAB DAN SANKSI
+
+Gunakan JavaScript Visibility API dan event terkait untuk mendeteksi ketika siswa meninggalkan halaman ujian.
+
+Catat:
+- Perpindahan ke tab lain.
+- Browser kehilangan visibilitas.
+- Waktu kejadian.
+- Jumlah pelanggaran.
+- Tingkat sanksi yang diberikan.
+
+Gunakan sistem sanksi tiga tingkat:
+
+TINGKAT 1:
+- Pelanggaran pertama.
+- Pengurangan nilai 10 poin.
+- Tampilkan peringatan.
+
+TINGKAT 2:
+- Pelanggaran kedua.
+- Pengurangan nilai 20 poin.
+- Tampilkan peringatan serius.
+
+TINGKAT 3:
+- Pelanggaran ketiga.
+- Status DISKUALIFIKASI.
+- Ujian ditandai tidak sah.
+- Guru dapat melihat riwayat pelanggaran.
+
+Ketentuan penting:
+- Sanksi tidak boleh dijumlahkan berulang secara keliru.
+- Gunakan aturan tingkat tertinggi yang tercapai.
+- Nilai akhir tidak boleh kurang dari 0.
+- Diskualifikasi harus tercatat secara terpisah dari nilai.
+- Simpan semua pelanggaran ke LocalStorage.
+- Jangan memberikan sanksi berulang akibat event yang sama.
+- Berikan catatan bahwa deteksi tab browser tidak dapat menjamin pendeteksian seluruh aktivitas di luar browser.
+
+## 9. AUTO-SAVE REAL-TIME
+
+Gunakan LocalStorage untuk menyimpan data ujian secara otomatis.
+
+Simpan setiap perubahan berikut:
+- Identitas siswa.
+- NIS.
+- Token atau identitas sesi ujian sesuai kebutuhan.
+- Jawaban setiap nomor.
+- Status ragu-ragu.
+- Nomor soal aktif.
+- Waktu mulai.
+- Waktu berakhir.
+- Waktu tersisa.
+- Jumlah pelanggaran.
+- Riwayat pelanggaran.
+- Status fullscreen.
+- Status koneksi.
+- Status pengumpulan.
+- Hasil penilaian lokal.
+
+Auto-save harus berjalan:
+- Ketika siswa memilih jawaban.
+- Ketika siswa mengubah jawaban.
+- Ketika siswa mengisi jawaban singkat.
+- Ketika siswa menandai ragu-ragu.
+- Ketika berpindah nomor.
+- Secara berkala selama timer berjalan.
+- Ketika terjadi pelanggaran.
+- Ketika koneksi internet terputus.
+
+Gunakan struktur data JSON yang terorganisasi.
+
+Gunakan session ID yang unik agar data antar siswa tidak tercampur.
+
+## 10. FITUR RESUME SESI
+
+Ketika siswa:
+- Kehilangan koneksi internet.
+- Menutup browser.
+- Tidak sengaja memuat ulang halaman.
+- Chromebook mengalami restart.
+
+Sistem harus memeriksa data sesi terakhir.
+
+Jika sesi ditemukan dan belum dikumpulkan, tampilkan modal:
+
+"SESI UJIAN DITEMUKAN"
+
+"Data jawaban dan waktu pengerjaan sebelumnya berhasil ditemukan."
+
+Tampilkan dua pilihan:
+1. LANJUTKAN PENGERJAAN.
+2. LIHAT INFORMASI SESI.
+
+Ketika siswa melanjutkan:
+- Pulihkan semua jawaban.
+- Pulihkan status ragu-ragu.
+- Pulihkan nomor soal terakhir.
+- Pulihkan waktu tersisa berdasarkan timestamp.
+- Pulihkan riwayat pelanggaran.
+- Lanjutkan ujian tanpa mengulang dari awal.
+
+Jangan pernah mengatur ulang timer hanya karena halaman dimuat ulang.
+
+Sesi yang sudah dikumpulkan tidak boleh dapat dilanjutkan.
+
+## 11. FITUR SEMI-ONLINE DAN OFFLINE
+
+Buat aplikasi tetap dapat digunakan saat internet terputus.
+
+Gunakan:
+- LocalStorage.
+- IndexedDB jika dibutuhkan.
+- Service Worker untuk mendukung cache aset aplikasi.
+- Mekanisme sinkronisasi ketika koneksi kembali.
+
+Tampilkan indikator koneksi real-time.
+
+Ketika internet terputus:
+Tampilkan toast:
+"Koneksi internet terputus. Jawaban tetap tersimpan di perangkat."
+
+Ketika internet kembali:
+Tampilkan toast:
+"Koneksi internet tersambung kembali. Data siap disinkronkan."
+
+### Offline Submit
+
+Jika siswa menekan tombol kirim ketika offline:
+- Hitung nilai secara lokal.
+- Simpan hasil ujian.
+- Simpan seluruh jawaban.
+- Simpan identitas siswa.
+- Simpan status pengumpulan.
+- Tampilkan status:
+
+"TERSIMPAN DI PERANGKAT — BELUM SINKRON"
+
+Jika internet kembali:
+- Lakukan sinkronisasi otomatis.
+- Hindari pengiriman data ganda.
+- Gunakan ID unik setiap pengumpulan.
+- Tampilkan status berhasil disinkronkan.
+
+PENTING:
+Untuk versi front-end tanpa backend, data hanya dapat disimpan di perangkat siswa dan belum otomatis dapat dibaca guru dari perangkat lain. Buat lapisan sinkronisasi yang siap dihubungkan ke backend atau database agar pengumpulan lintas perangkat benar-benar berfungsi.
+
+Jangan menganggap LocalStorage sebagai pengganti database server.
+
+## 12. HALAMAN HASIL UJIAN
+
+Setelah siswa mengumpulkan ujian, tampilkan halaman hasil.
+
+Informasi:
+- Nama siswa.
+- NIS.
+- Mata pelajaran.
+- Materi.
+- Nilai akhir.
+- KKM.
+- Keterangan kelulusan.
+- Jumlah benar.
+- Jumlah salah.
+- Jumlah kosong.
+- Status pelanggaran.
+- Status sinkronisasi.
+
+Aturan:
+KKM = 78.
+
+Jika nilai ≥ 78:
+Tampilkan "LULUS".
+
+Jika nilai < 78:
+Tampilkan "REMIDIAL".
+
+Jika diskualifikasi:
+Tampilkan "DISKUALIFIKASI" sebagai status utama.
+
+Gunakan tampilan kartu nilai yang menarik dan profesional.
+
+Pembahasan jawaban dapat ditampilkan jika guru mengaktifkan fitur pembahasan.
+
+Sediakan tombol:
+- Lihat Ringkasan Jawaban.
+- Cetak Hasil.
+- Kembali ke Halaman Utama jika diizinkan.
+
+## 13. SISTEM PENILAIAN OTOMATIS
+
+Buat sistem penilaian berdasarkan kunci jawaban yang ditentukan.
+
+Total soal: 30.
+
+Nilai maksimal: 100.
+
+Gunakan bobot awal yang seimbang:
+- Nomor 1–9: 3 poin per soal.
+- Nomor 10–17: 4 poin per soal.
+- Nomor 18–25: 3 poin per soal.
+- Nomor 26–30: 4 poin per soal.
+
+Total nilai mentah maksimal: 100 poin.
+
+Untuk pilihan ganda kompleks, jawaban harus sesuai seluruh kombinasi jawaban benar agar memperoleh nilai penuh. Jangan memberikan nilai penuh jika ada pilihan yang salah atau jawaban benar belum lengkap.
+
+Untuk isian singkat, buat pemeriksaan jawaban yang mendukung variasi penulisan angka, tanda positif/negatif, koma desimal, dan satuan yang diperbolehkan.
+
+Nilai akhir:
+Nilai akhir = poin yang diperoleh dikurangi sanksi sesuai tingkat pelanggaran.
+
+Batas nilai minimum 0.
+
+Pastikan aturan penilaian didokumentasikan dan dapat diubah oleh guru.
+
+Jangan menebak kunci jawaban. Buat konfigurasi answer key terpisah dan tandai kunci yang belum diverifikasi agar guru dapat memeriksanya sebelum ujian diterbitkan.
+
+## 14. PENGACAKAN SOAL
+
+Terapkan pengacakan urutan soal untuk setiap sesi ujian.
+
+Ketentuan:
+- Gunakan algoritma Fisher-Yates.
+- Setiap siswa mendapatkan urutan soal berbeda.
+- Simpan urutan soal ke LocalStorage.
+- Urutan tidak berubah ketika siswa melanjutkan sesi.
+- Jangan mengubah redaksi soal.
+- Jangan mengacak susunan pilihan jawaban kecuali diaktifkan oleh guru.
+- Pastikan nomor asli soal tetap tercatat untuk penilaian.
+
+## 15. DATA SOAL UJIAN — WAJIB DIPERTAHANKAN UTUH
+
+Masukkan seluruh soal berikut ke aplikasi.
+
+PERATURAN WAJIB:
+- Jangan mengurangi jumlah soal.
+- Jangan meringkas soal.
+- Jangan mengubah kalimat soal.
+- Jangan mengubah bahasa Indonesia atau bahasa Inggris yang digunakan.
+- Jangan mengubah angka, rumus kimia, satuan, simbol, maupun data.
+- Jangan mengubah nilai entalpi.
+- Jangan mengubah urutan opsi jawaban.
+- Jangan menghilangkan teks AKM.
+- Jangan menghilangkan tabel atau data.
+- Jangan mengubah redaksi petunjuk.
+- Jangan membuat soal pengganti.
+- Pertahankan seluruh redaksi soal sebagaimana diberikan.
+- Format tampilan boleh dipercantik tanpa mengubah isi.
+- Semua 30 soal wajib tersedia dan dapat dikerjakan.
+
+# PETUNJUK UMUM
+
+Soal terdiri atas 4 bentuk: pilihan ganda (1–9), pilihan ganda kompleks (10–17), benar-salah (18–25), dan isian singkat (26–30).
+Pada pilihan ganda kompleks, pilih SEMUA jawaban yang benar.
+Gunakan data berikut bila diperlukan: kalor jenis air/larutan = 4,18 J g⁻¹ °C⁻¹ (kecuali ditentukan lain); massa jenis larutan = 1 g mL⁻¹; Ar H = 1, C = 12, N = 14, O = 16, Na = 23, Mg = 24.
+Soal bertanda [AKM-Literasi] atau [AKM-Numerasi] memuat teks atau data kontekstual.
+
+# A. PILIHAN GANDA (SOAL 1–9)
+
+Pilihlah satu jawaban yang paling tepat.
+
+**1.** Sebanyak 50 mL larutan NaOH dan 50 mL larutan HCl dicampurkan dalam sebuah gelas kimia. Pada peristiwa tersebut, yang berperan sebagai sistem adalah ...
+
+- gelas kimia
+- larutan NaOH dan HCl yang bereaksi
+- udara di sekitar gelas kimia
+- meja laboratorium
+- termometer dan pengaduk kaca
+
+**2.** Teh panas disimpan dalam termos yang ditutup rapat. Termos tersebut merupakan contoh sistem ...
+
+- terbuka
+- tertutup
+- terisolasi
+- heterogen
+- homogen
+
+**3.** Which of the following processes is exothermic?
+
+- Melting of ice
+- Evaporation of water
+- Combustion of methane
+- Photosynthesis
+- Thermal decomposition of CaCO₃
+
+**4.** Reaksi endoterm ditandai dengan ...
+
+- ΔH < 0 dan suhu lingkungan naik
+- ΔH > 0 dan suhu lingkungan turun
+- ΔH > 0 dan suhu lingkungan naik
+- ΔH < 0 dan suhu lingkungan turun
+- ΔH = 0 dan suhu lingkungan tetap
+
+**5.** Persamaan termokimia yang menunjukkan perubahan entalpi pembentukan standar (ΔHf°) CO₂ adalah ...
+
+- C(s) + O₂(g) → CO₂(g) ΔH = −393,5 kJ
+- CO(g) + ½O₂(g) → CO₂(g) ΔH = −283 kJ
+- C(g) + O₂(g) → CO₂(g) ΔH = −1.110,5 kJ
+- 2C(s) + 2O₂(g) → 2CO₂(g) ΔH = −787 kJ
+- H₂(g) + ½O₂(g) → H₂O(l) ΔH = −286 kJ
+
+**6. [AKM-Numerasi]** Dalam sebuah kalorimeter sederhana, 50 mL larutan HCl 1 M dicampur dengan 50 mL larutan NaOH 1 M. Suhu campuran naik dari 25,0 °C menjadi 31,5 °C. Jika kalor jenis larutan 4,18 J g⁻¹ °C⁻¹ dan kalorimeter dianggap tidak menyerap kalor, perubahan entalpi netralisasi per mol air yang terbentuk adalah ...
+
+- −27,2 kJ/mol
+- −54,3 kJ/mol
+- −108,7 kJ/mol
+- +54,3 kJ/mol
+- −2,7 kJ/mol
+
+**7.** Diketahui persamaan termokimia berikut:
+
+C(s) + O₂(g) → CO₂(g) ΔH = −394 kJ
+
+H₂(g) + ½O₂(g) → H₂O(l) ΔH = −286 kJ
+
+CH₄(g) + 2O₂(g) → CO₂(g) + 2H₂O(l) ΔH = −890 kJ
+
+Entalpi pembentukan standar CH₄(g) adalah ...
+
+- −76 kJ/mol
+- +76 kJ/mol
+- −1.856 kJ/mol
+- +1.856 kJ/mol
+- −1.570 kJ/mol
+
+**8.** Use the average bond energies below (kJ/mol): C–H = 413; O=O = 495; C=O = 799; O–H = 463. The enthalpy change for the reaction CH₄(g) + 2O₂(g) → CO₂(g) + 2H₂O(g) is ...
+
+- −808 kJ
+- +808 kJ
+- −3.450 kJ
+- +3.450 kJ
+- −2.642 kJ
+
+**9.** Diketahui ΔHf° C₃H₈(g) = −104 kJ/mol, CO₂(g) = −394 kJ/mol, dan H₂O(l) = −286 kJ/mol. Kalor yang dilepaskan pada pembakaran sempurna 22 gram C₃H₈ (Mr = 44) adalah ...
+
+- 555,5 kJ
+- 1.111 kJ
+- 2.222 kJ
+- 4.444 kJ
+- 2.326 kJ
+
+# B. PILIHAN GANDA KOMPLEKS (SOAL 10–17)
+
+Pilihlah SEMUA jawaban yang benar (lebih dari satu).
+
+**10.** Pernyataan yang benar tentang sistem dan lingkungan adalah ...
+
+- Sistem adalah bagian alam semesta yang menjadi pusat pengamatan
+- Lingkungan adalah segala sesuatu di luar sistem
+- Pada sistem tertutup terjadi pertukaran materi dan energi
+- Pada sistem terisolasi tidak terjadi pertukaran materi maupun energi
+- Air dalam gelas tanpa tutup merupakan contoh sistem terisolasi
+
+**11.** Ciri-ciri reaksi eksoterm adalah ...
+
+- ΔH bernilai negatif
+- kalor berpindah dari sistem ke lingkungan
+- entalpi produk lebih besar daripada entalpi reaktan
+- suhu lingkungan meningkat
+- sistem menyerap energi dari lingkungan
+
+**12.** Which of the following equations represent the standard enthalpy of formation (ΔHf°)? Select ALL that apply.
+
+- H₂(g) + ½O₂(g) → H₂O(l)
+- 2H₂(g) + O₂(g) → 2H₂O(l)
+- C(s, graphite) + 2H₂(g) → CH₄(g)
+- CO(g) + ½O₂(g) → CO₂(g)
+- Na(s) + ½Cl₂(g) → NaCl(s)
+
+**13.** Pasangan persamaan termokimia dan jenis perubahan entalpinya yang tepat adalah ...
+
+- C₂H₅OH(l) + 3O₂(g) → 2CO₂(g) + 3H₂O(l) ΔH = −1.367 kJ : entalpi pembakaran standar
+- H₂O(l) → H₂(g) + ½O₂(g) ΔH = +286 kJ : entalpi penguraian standar
+- NaCl(s) → Na⁺(aq) + Cl⁻(aq) ΔH = +3,9 kJ : entalpi pelarutan
+- H₂O(s) → H₂O(l) ΔH = +6 kJ : entalpi penguapan
+- HCl(aq) + NaOH(aq) → NaCl(aq) + H₂O(l) ΔH = −57 kJ : entalpi penguraian
+
+**14. [AKM-Numerasi]** Sebanyak 2 gram NaOH (Mr = 40) dilarutkan dalam 100 mL air di dalam kalorimeter sederhana. Suhu naik dari 27 °C menjadi 32 °C. Anggap massa larutan 100 g, kalor jenis larutan 4,2 J g⁻¹ °C⁻¹, dan kalorimeter tidak menyerap kalor. Pernyataan yang benar adalah ...
+
+- Pelarutan NaOH bersifat eksoterm
+- Kalor yang diserap larutan sebesar 2.100 J
+- ΔH pelarutan NaOH = −42 kJ/mol
+- ΔH pelarutan NaOH = −2,1 kJ/mol
+- Suhu larutan naik karena reaksi menyerap kalor dari lingkungan
+
+**15.** Diketahui:
+
+(1) S(s) + O₂(g) → SO₂(g) ΔH = −297 kJ
+
+(2) 2SO₂(g) + O₂(g) → 2SO₃(g) ΔH = −198 kJ
+
+Pernyataan yang benar adalah ...
+
+- ΔHf° SO₃(g) = −396 kJ/mol
+- Jika persamaan (2) dibalik, ΔH menjadi +198 kJ
+- Jika persamaan (2) dibagi 2, ΔH menjadi −99 kJ
+- Pembentukan 2 mol SO₃ dari S dan O₂ memiliki ΔH = −396 kJ
+- Menurut hukum Hess, ΔH reaksi bergantung pada jalannya reaksi
+
+**16.** Perhatikan reaksi hidrogenasi etena: C₂H₄(g) + H₂(g) → C₂H₆(g). Energi ikatan rata-rata (kJ/mol): C=C = 614; C–C = 348; C–H = 413; H–H = 436. Pernyataan yang benar adalah ...
+
+- Ikatan yang putus adalah 1 ikatan C=C dan 1 ikatan H–H
+- Total energi untuk memutuskan ikatan adalah 1.050 kJ
+- ΔH reaksi = −124 kJ
+- Reaksi tersebut bersifat endoterm
+- Produk lebih stabil daripada reaktan
+
+**17. [AKM-Literasi]** Read the text, then answer.
+
+Instant Cold Packs and Hand Warmers. An instant cold pack for sports injuries holds a bag of water next to solid ammonium nitrate (NH₄NO₃). When the bag is squeezed and broken, the solid dissolves:
+
+NH₄NO₃(s) → NH₄⁺(aq) + NO₃⁻(aq), ΔH = +25,7 kJ/mol.
+
+The pack quickly becomes cold, which helps reduce swelling. In contrast, a hand warmer contains iron powder that reacts with oxygen in the air:
+
+4Fe(s) + 3O₂(g) → 2Fe₂O₃(s), ΔH = −1.648 kJ.
+
+The warmer stays hot for hours.
+
+Which statements are correct based on the text? Select ALL that apply.
+
+- Dissolving ammonium nitrate is an endothermic process
+- The cold pack feels cold because the system absorbs heat from its surroundings
+- The hand warmer is an example of an endothermic reaction
+- In the hand warmer, the products have lower enthalpy than the reactants
+- Each mole of NH₄NO₃ dissolved releases 25,7 kJ to the surroundings
+
+# C. BENAR-SALAH (SOAL 18–25)
+
+Tentukan apakah pernyataan berikut BENAR atau SALAH.
+
+Teks untuk soal 18–19.
+
+**[AKM-Literasi] Pemanas Makanan Tanpa Api.**
+
+Ransum untuk pendaki dan tim darurat sering dilengkapi kantong pemanas makanan tanpa api. Kantong berisi serbuk magnesium yang ditambahkan air sehingga terjadi reaksi:
+
+Mg(s) + 2H₂O(l) → Mg(OH)₂(s) + H₂(g) ΔH = −353 kJ.
+
+Dalam beberapa menit, suhu kantong naik hingga 60–90 °C sehingga makanan di dekatnya ikut hangat. Gas hidrogen yang terbentuk dilepas melalui ventilasi, sehingga kantong tidak boleh dipakai di ruang tertutup rapat.
+
+**18.** Reaksi pada kantong pemanas makanan tergolong eksoterm karena kalor berpindah dari sistem ke lingkungan. (Benar / Salah)
+
+**19.** Jika 0,5 mol magnesium bereaksi sempurna, kalor yang dilepaskan sebesar 706 kJ. (Benar / Salah)
+
+**20.** If the reaction A → B has ΔH = +50 kJ, then the reaction B → A has ΔH = −50 kJ, and the reaction 2A → 2B has ΔH = +100 kJ. (True / False)
+
+**21.** Pada reaksi 2H₂(g) + O₂(g) → 2H₂O(l) dengan ΔH = −572 kJ, entalpi pembentukan standar H₂O(l) adalah −572 kJ/mol. (Benar / Salah)
+
+Data untuk soal 22–24.
+
+**[AKM-Numerasi] Tabel entalpi pembakaran standar beberapa bahan bakar:**
+
+| Bahan bakar | Rumus | Mr | ΔHc° (kJ/mol) |
+|---|---|---|---|
+| Metana | CH₄ | 16 | −890 |
+| Etanol | C₂H₅OH | 46 | −1.367 |
+| Hidrogen | H₂ | 2 | −286 |
+
+**22.** Per gram bahan bakar, hidrogen melepaskan kalor paling besar di antara ketiga bahan bakar pada tabel. (Benar / Salah)
+
+**23.** Pembakaran 1 mol etanol melepaskan kalor lebih besar daripada 1 mol metana, sehingga per gram etanol juga melepaskan kalor lebih besar daripada metana. (Benar / Salah)
+
+**24.** The complete combustion of 8 g of methane releases 445 kJ of heat. (True / False)
+
+**25.** Diketahui energi ikatan (kJ/mol):
+
+H–H = 436; Cl–Cl = 243; H–Cl = 432.
+
+Pada reaksi H₂(g) + Cl₂(g) → 2HCl(g) diperoleh ΔH = −185 kJ, sehingga pembentukan 1 mol HCl melepaskan kalor 185 kJ. (Benar / Salah)
+
+# D. ISIAN SINGKAT (SOAL 26–30)
+
+Isilah titik-titik dengan jawaban yang singkat dan tepat.
+
+**26.** A process in which heat is absorbed from the surroundings is called an ................ process.
+
+**27.** Pembakaran sempurna 3,2 gram metanol (CH₃OH, Mr = 32) dalam kalorimeter bom melepaskan kalor 72,6 kJ. Entalpi pembakaran molar metanol adalah ................ kJ/mol.
+
+**28.** Diketahui:
+
+N₂(g) + O₂(g) → 2NO(g) ΔH = +180 kJ
+
+2NO(g) + O₂(g) → 2NO₂(g) ΔH = −114 kJ
+
+Entalpi pembentukan standar NO₂(g) adalah ................ kJ/mol.
+
+**29. [AKM-Numerasi]** Sebuah pembakar spiritus membakar sempurna 0,92 gram etanol (C₂H₅OH, Mr = 46). Kalor hasil pembakaran dipakai untuk memanaskan 250 gram air dari 25 °C menjadi 45 °C (kalor jenis air 4,18 J g⁻¹ °C⁻¹); sebagian kalor hilang ke lingkungan. Diketahui ΔHf° C₂H₅OH(l) = −278 kJ/mol, CO₂(g) = −394 kJ/mol, H₂O(l) = −286 kJ/mol. Efisiensi pemanasan tersebut adalah ................ % (dibulatkan ke bilangan bulat).
+
+**30.** Given average bond energies (kJ/mol): N≡N = 941; H–H = 436; N–H = 391. The enthalpy change of N₂(g) + 3H₂(g) → 2NH₃(g) is ................ kJ.
+
+## 16. PENGATURAN KUNCI JAWABAN
+
+Buat file atau objek konfigurasi khusus untuk menyimpan kunci jawaban.
+
+Ketentuan:
+- Kunci jawaban tidak ditampilkan kepada siswa.
+- Guru dapat mengatur dan memeriksa kunci sebelum ujian.
+- Jangan menebak jawaban yang belum diverifikasi.
+- Penilaian dilakukan berdasarkan nomor asli soal meskipun soal diacak.
+- Sediakan opsi mengaktifkan atau menonaktifkan pembahasan.
+
+## 17. KEAMANAN DAN INTEGRITAS DATA
+
+Terapkan:
+- Validasi identitas siswa.
+- Validasi sesi ujian.
+- ID unik setiap sesi.
+- Penyimpanan terpisah untuk setiap siswa.
+- Pencegahan pengumpulan ganda.
+- Penguncian jawaban setelah submit.
+- Pencatatan waktu pengerjaan.
+- Pencatatan pelanggaran.
+- Backup data lokal.
+
+PENTING UNTUK PRODUKSI:
+Karena aplikasi membutuhkan pengumpulan hasil siswa dari berbagai Chromebook ke dashboard guru, siapkan integrasi backend/database. LocalStorage saja tidak dapat mengirimkan data ke perangkat guru.
+
+Jangan menganggap PIN guru, kunci jawaban, atau validasi nilai yang berada di JavaScript sebagai sistem keamanan yang tidak dapat ditembus.
+
+Untuk versi produksi:
+- Autentikasi guru harus dilakukan di server.
+- Kunci jawaban disimpan di server.
+- Penilaian akhir diverifikasi server.
+- Pengumpulan hasil menggunakan API.
+- Sinkronisasi menggunakan mekanisme yang aman.
+- Gunakan database dengan identitas siswa dan sesi yang terpisah.
+
+## 18. STRUKTUR FILE PROYEK
+
+Susun proyek secara terorganisasi, misalnya:
+
+/aplikasi-ulangan-online
+│
+├── index.html
+├── student.html
+├── teacher.html
+├── result.html
+│
+├── css/
+│   └── style.css
+│
+├── js/
+│   ├── app.js
+│   ├── auth.js
+│   ├── questions.js
+│   ├── exam.js
+│   ├── timer.js
+│   ├── autosave.js
+│   ├── scoring.js
+│   ├── teacher.js
+│   ├── export.js
+│   └── sync.js
+│
+├── assets/
+│   └── logo.png
+│
+└── service-worker.js
+
+Boleh menyesuaikan struktur selama seluruh fungsi tetap terpisah dan mudah dipelihara.
+
+## 19. OUTPUT YANG HARUS DIHASILKAN
+
+Saya ingin hasil akhir berupa:
+
+1. Desain halaman login siswa.
+2. Desain halaman ujian.
+3. Desain halaman hasil ujian.
+4. Dashboard guru.
+5. Sistem manajemen siswa.
+6. Sistem pengaturan ujian.
+7. Sistem penilaian otomatis.
+8. Sistem pengacakan soal.
+9. Sistem countdown timer.
+10. Sistem fullscreen.
+11. Sistem deteksi perpindahan tab.
+12. Sistem sanksi tiga tingkat.
+13. Sistem autosave LocalStorage.
+14. Sistem resume sesi.
+15. Sistem semi-online dan offline submit.
+16. Sistem sinkronisasi data.
+17. Sistem ekspor hasil siswa PDF.
+18. Sistem ekspor rekapitulasi PDF dan Excel.
+19. Seluruh 30 soal termokimia.
+20. Kode sumber lengkap dan siap dijalankan.
+
+## 20. STANDAR KUALITAS
+
+Sebelum menyelesaikan pekerjaan, lakukan pengujian berikut:
+
+- Pastikan semua 30 soal tampil.
+- Pastikan tidak ada redaksi soal yang hilang atau berubah.
+- Pastikan pilihan jawaban sesuai urutan aslinya.
+- Pastikan pilihan ganda kompleks mendukung banyak jawaban.
+- Pastikan benar-salah berfungsi.
+- Pastikan isian singkat berfungsi.
+- Pastikan timer berjalan dan tidak reset saat halaman dimuat ulang.
+- Pastikan autosave berfungsi.
+- Pastikan resume sesi berfungsi.
+- Pastikan status offline dan online berubah secara otomatis.
+- Pastikan submit offline tetap menyimpan hasil lokal.
+- Pastikan pengumpulan tidak bisa dilakukan dua kali.
+- Pastikan pengacakan soal tetap konsisten saat resume.
+- Pastikan sanksi tidak terhitung berulang.
+- Pastikan KKM 78 berfungsi.
+- Pastikan keterangan REMIDIAL muncul jika nilai di bawah 78.
+- Pastikan dokumen PDF siswa bisa diunduh.
+- Pastikan rekapitulasi kelas bisa diunduh.
+- Pastikan dashboard guru dapat menampilkan data hasil siswa.
+- Pastikan website responsif dan nyaman digunakan di Chromebook.
+
+**INSTRUKSI AKHIR:**
+
+Kerjakan aplikasi ini secara lengkap, bukan sekadar contoh tampilan.
+
+Prioritaskan fungsi, ketepatan data, keamanan, dan kemudahan penggunaan.
+
+Jangan menghilangkan fitur yang diminta.
+
+Jangan mengurangi satu pun dari 30 soal yang telah diberikan.
+
+Jika output kode terlalu panjang, bagi pengerjaan menjadi beberapa bagian dan lanjutkan sampai seluruh file selesai. Jangan mengganti kode yang belum selesai dengan pseudocode atau placeholder.
+
+Pastikan setiap bagian kode saling terhubung dan dapat dijalankan.
+
+## 21. INTEGRASI FIREBASE REALTIME DATABASE — WAJIB DITERAPKAN
+
+Tambahkan integrasi Firebase Realtime Database ke dalam aplikasi yang sudah dijelaskan pada seluruh bagian sebelumnya. Bagian ini merupakan ketentuan tambahan sekaligus penegasan bahwa hasil siswa harus tersimpan pada database online secara real-time, bukan hanya tersimpan di LocalStorage.
+
+**Jangan menghapus, meringkas, mengganti, atau mengubah redaksi bagian prompt dan 30 soal yang sudah diberikan.** Pertahankan seluruh fitur sebelumnya dan tambahkan integrasi Firebase berikut.
+
+### A. Teknologi Firebase
+
+Gunakan:
+- Firebase Realtime Database sebagai database online utama.
+- Firebase Authentication untuk autentikasi guru dan/atau siswa jika diperlukan.
+- Firebase JavaScript SDK versi modular (ES Modules).
+- Firebase Security Rules untuk membatasi akses data.
+- Firebase Hosting sebagai opsi deployment.
+- Cloud Functions for Firebase atau backend tepercaya untuk proses yang tidak boleh dipercayakan kepada browser, seperti validasi token, penilaian final, dan pengesahan pengumpulan.
+
+Gunakan Firebase Realtime Database, bukan Firestore, karena kebutuhan aplikasi ini secara khusus adalah Firebase Realtime Database.
+
+Buat file konfigurasi terpisah:
+`js/firebase-config.js`
+
+Sediakan placeholder konfigurasi Firebase yang akan saya isi menggunakan konfigurasi proyek Firebase milik sekolah. Jangan mengarang API Key, Project ID, Database URL, atau kredensial Firebase. Jangan menuliskan kredensial pribadi atau service account di front-end.
+
+### B. Firebase sebagai Database Utama
+
+Terapkan pembagian tanggung jawab berikut:
+- Firebase Realtime Database menjadi sumber data utama untuk data siswa, pengaturan ujian, sesi ujian, jawaban yang tersinkronisasi, hasil ujian, dan rekapitulasi guru.
+- LocalStorage atau IndexedDB menjadi penyimpanan lokal/cadangan untuk mendukung pengerjaan saat offline.
+- Setiap perubahan yang dibuat saat online harus disimpan ke Firebase secara real-time atau dengan jeda sinkronisasi singkat yang terukur.
+- Setiap perubahan yang dibuat saat offline harus masuk antrean lokal dan dikirim ke Firebase ketika koneksi pulih.
+- Dashboard guru harus membaca data tersinkronisasi dari Firebase sehingga hasil siswa dari Chromebook yang berbeda dapat dilihat pada perangkat guru.
+
+Jangan menyatakan hasil sudah tersimpan di database online sebelum Firebase mengonfirmasi operasi penulisan berhasil.
+
+### C. Struktur Data Firebase
+
+Gunakan struktur database yang rapi, konsisten, dan memiliki ID unik. Contoh struktur:
+
+```json
+{
+  "students": {
+    "NIS_SISWA": {
+      "nis": "NIS_SISWA",
+      "nama": "Nama Siswa",
+      "kelas": "XI",
+      "status": "aktif"
+    }
+  },
+  "exams": {
+    "examId": {
+      "judul": "Ulangan Harian Kimia",
+      "mataPelajaran": "Kimia",
+      "materi": "Termokimia",
+      "kkm": 78,
+      "durasiMenit": 60,
+      "status": "aktif",
+      "acakSoal": true
+    }
+  },
+  "sessions": {
+    "sessionId": {
+      "nis": "NIS_SISWA",
+      "examId": "examId",
+      "status": "sedang_mengerjakan",
+      "urutanSoal": [],
+      "jawaban": {},
+      "soalRaguRagu": {},
+      "nomorAktif": 1,
+      "waktuMulai": 0,
+      "batasWaktu": 0,
+      "pelanggaranTab": [],
+      "lastUpdatedAt": 0
+    }
+  },
+  "results": {
+    "resultId": {
+      "sessionId": "sessionId",
+      "examId": "examId",
+      "nis": "NIS_SISWA",
+      "nama": "Nama Siswa",
+      "nilai": 0,
+      "kkm": 78,
+      "statusKelulusan": "REMIDIAL",
+      "benar": 0,
+      "salah": 0,
+      "kosong": 0,
+      "jumlahPelanggaran": 0,
+      "statusPengumpulan": "submitted",
+      "statusSinkronisasi": "synced",
+      "waktuPengumpulan": 0,
+      "jawaban": {}
+    }
+  }
+}
+```
+
+Struktur tersebut boleh disesuaikan dengan kebutuhan implementasi, tetapi wajib memisahkan data siswa, ujian, sesi, dan hasil. Gunakan ID sesi dan ID hasil yang unik agar data tidak tercampur dan pengumpulan ganda dapat dicegah.
+
+Jangan menyimpan kunci jawaban pada lokasi database yang dapat dibaca siswa. Simpan kunci jawaban pada backend tepercaya atau lokasi yang hanya dapat diakses oleh guru/server.
+
+### D. Sinkronisasi Jawaban Real-Time
+
+Setiap perubahan berikut harus otomatis disimpan:
+- Jawaban pilihan ganda.
+- Jawaban pilihan ganda kompleks.
+- Jawaban benar-salah.
+- Isian singkat.
+- Status ragu-ragu.
+- Nomor soal yang sedang dibuka.
+- Urutan soal hasil pengacakan.
+- Waktu mulai dan batas waktu ujian.
+- Riwayat pelanggaran tab.
+- Status pengerjaan dan status pengumpulan.
+
+Gunakan API Firebase Realtime Database yang sesuai, seperti:
+- `ref()`
+- `get()`
+- `set()`
+- `update()`
+- `onValue()`
+- `push()`
+- `serverTimestamp()` atau mekanisme timestamp server yang sesuai.
+
+Terapkan penulisan data secara efisien. Jangan menulis ke database setiap milidetik. Simpan segera ketika jawaban berubah, dan gunakan mekanisme debounce/batching hanya jika tidak berisiko menghilangkan jawaban terbaru. Pastikan perubahan penting tetap disimpan sebelum siswa berpindah halaman atau mengumpulkan ujian.
+
+Tampilkan indikator penyimpanan yang jujur:
+- ONLINE — TERSINKRONISASI (hijau), hanya setelah penulisan Firebase berhasil.
+- MENYIMPAN KE FIREBASE (biru).
+- OFFLINE — TERSIMPAN DI PERANGKAT (kuning).
+- MENUNGGU SINKRONISASI (oranye).
+- GAGAL SINKRONISASI (merah).
+
+### E. Offline, LocalStorage, dan Resume Sesi
+
+Pertahankan fitur LocalStorage/IndexedDB dan resume sesi dari prompt sebelumnya, lalu hubungkan dengan Firebase.
+
+Ketentuan:
+1. Simpan perubahan jawaban ke penyimpanan lokal terlebih dahulu agar tidak mudah hilang.
+2. Jika online, kirim perubahan ke Firebase dan perbarui status sinkronisasi setelah server mengonfirmasi.
+3. Jika offline, masukkan perubahan ke antrean sinkronisasi lokal dengan ID operasi unik.
+4. Ketika koneksi kembali, kirim antrean secara berurutan atau dengan strategi yang menjaga konsistensi data.
+5. Setelah berhasil, tandai operasi sebagai tersinkronisasi dan hapus antrean yang sudah selesai dengan aman.
+6. Hindari duplikasi menggunakan sessionId, resultId, dan operationId yang unik.
+7. Gunakan timestamp pembaruan dan aturan konflik yang jelas agar data lama tidak menimpa jawaban terbaru.
+8. Ketika browser dibuka kembali atau Chromebook restart, pulihkan sesi lokal dan cocokkan dengan sesi Firebase jika koneksi tersedia.
+9. Jangan mereset timer ketika sesi dilanjutkan. Gunakan waktu mulai dan batas waktu yang tervalidasi.
+10. Jangan mengizinkan sesi yang sudah dikumpulkan untuk dilanjutkan atau diubah.
+
+Perhatikan bahwa dukungan offline Firebase pada browser memiliki batasan dan perlu diuji secara khusus. Jangan mengandalkan cache SDK saja sebagai satu-satunya antrean offline. Buat antrean lokal eksplisit agar perilaku sinkronisasi dapat dipantau dan diuji.
+
+### F. Offline Submit dan Sinkronisasi Hasil
+
+Jika siswa mengumpulkan ujian saat online:
+- Validasi status sesi.
+- Kirim permintaan pengumpulan dengan ID hasil unik.
+- Hitung dan validasi nilai akhir melalui backend tepercaya.
+- Simpan hasil final ke Firebase.
+- Ubah status sesi menjadi selesai.
+- Kunci sesi agar tidak dapat dikirim ulang.
+- Tampilkan status berhasil setelah server mengonfirmasi.
+
+Jika siswa mengumpulkan ujian saat offline:
+- Simpan jawaban lengkap, identitas, waktu pengumpulan lokal, dan data sesi ke penyimpanan lokal.
+- Buat resultId dan operationId unik.
+- Tampilkan status "TERSIMPAN DI PERANGKAT — BELUM TERSINKRONISASI".
+- Jangan menyatakan hasil sudah diterima guru atau sudah masuk Firebase.
+- Ketika internet kembali, kirim data pengumpulan ke backend/Firebase.
+- Backend harus memeriksa sesi, identitas, batas waktu, dan duplikasi sebelum menerima hasil.
+- Setelah Firebase mengonfirmasi penyimpanan, ubah status menjadi "TERSINKRONISASI".
+- Jika sinkronisasi gagal, pertahankan data lokal dan tampilkan alasan/keterangan kegagalan yang mudah dipahami.
+
+Pastikan pengumpulan bersifat idempotent: pengiriman ulang dengan ID hasil yang sama tidak boleh membuat hasil ganda atau mengubah hasil yang sudah sah.
+
+### G. Dashboard Guru Real-Time
+
+Hubungkan seluruh dashboard guru ke Firebase Realtime Database.
+
+Gunakan listener real-time seperti `onValue()` pada lokasi data yang diperlukan. Hindari membaca seluruh database berulang kali jika hanya sebagian data yang dibutuhkan.
+
+Dashboard harus otomatis memperbarui:
+- Total siswa terdaftar.
+- Jumlah siswa belum mulai.
+- Jumlah siswa sedang mengerjakan.
+- Jumlah siswa sudah mengumpulkan.
+- Jumlah hasil yang masih menunggu sinkronisasi.
+- Jumlah siswa lulus KKM.
+- Jumlah siswa REMIDIAL.
+- Rata-rata nilai kelas.
+
+Tabel monitoring harus menampilkan data yang berasal dari Firebase:
+- Nama siswa.
+- NIS.
+- Kelas.
+- Status pengerjaan.
+- Jumlah soal dijawab.
+- Jumlah soal kosong.
+- Jumlah pelanggaran tab.
+- Waktu pengumpulan.
+- Nilai akhir setelah diverifikasi.
+- Status LULUS/REMIDIAL/DISKUALIFIKASI.
+- Status sinkronisasi.
+
+Ketika siswa mengumpulkan ujian dari Chromebook masing-masing, hasilnya harus muncul otomatis di dashboard guru tanpa guru perlu memuat ulang halaman.
+
+Guru hanya boleh melihat data sesuai hak akses guru yang terautentikasi.
+
+### H. Dokumen Hasil Siswa dan Rekapitulasi
+
+Semua fitur unduh PDF dan Excel pada bagian sebelumnya harus mengambil data hasil dari Firebase yang sudah tersinkronisasi dan tervalidasi.
+
+Guru dapat:
+- Mengunduh PDF hasil satu siswa.
+- Mengunduh PDF hasil seluruh siswa.
+- Mengunduh rekapitulasi kelas dalam PDF.
+- Mengunduh rekapitulasi kelas dalam Excel.
+- Memfilter hasil berdasarkan kelas, ujian, atau status kelulusan.
+
+Dokumen hasil siswa harus memuat identitas, NIS, kelas, ujian, tanggal pengerjaan, nilai final, KKM, status kelulusan, jumlah benar/salah/kosong, jawaban siswa, pelanggaran, dan status sinkronisasi.
+
+Jangan memasukkan hasil yang belum tersinkronisasi sebagai hasil final yang telah diterima guru. Jika diperlukan, tampilkan daftar terpisah untuk pengumpulan yang masih menunggu sinkronisasi.
+
+### I. Autentikasi dan Firebase Security Rules
+
+Terapkan keamanan berdasarkan identitas pengguna dan peran (role), bukan hanya menyembunyikan halaman atau tombol.
+
+Ketentuan:
+- Guru harus terautentikasi dan memiliki role guru.
+- Siswa hanya boleh mengakses data ujian yang diizinkan dan sesi miliknya sendiri.
+- Siswa tidak boleh membaca kunci jawaban.
+- Siswa tidak boleh membaca atau mengubah sesi siswa lain.
+- Siswa tidak boleh menulis atau mengubah nilai final secara langsung.
+- Siswa tidak boleh mengubah status kelulusan, hasil penilaian final, atau waktu server.
+- Guru hanya dapat mengakses data sesuai kewenangannya.
+- Validasi token ujian dilakukan melalui backend tepercaya.
+- Validasi dan penetapan nilai final dilakukan melalui backend tepercaya.
+- Gunakan Firebase Security Rules yang membatasi akses secara spesifik.
+- Jangan pernah menggunakan aturan terbuka seperti `.read: true` dan `.write: true` untuk database produksi.
+- Jangan menaruh service account, private key, atau rahasia server di kode front-end.
+
+PIN guru yang disebutkan pada prompt sebelumnya hanya boleh menjadi mekanisme demo. Untuk produksi, autentikasi guru harus memakai Firebase Authentication dan role/claims yang diverifikasi server. Jangan mengandalkan PIN yang ditanam dalam JavaScript sebagai keamanan.
+
+Sertakan contoh Firebase Security Rules yang sesuai dengan struktur data dan role pengguna. Jelaskan bagian yang harus disesuaikan dengan UID dan skema autentikasi proyek sekolah. Jangan membuat rules terbuka hanya agar demo terlihat berjalan.
+
+### J. Struktur File Tambahan
+
+Tambahkan atau sesuaikan struktur proyek agar modul Firebase terpisah dan mudah dirawat:
+
+/aplikasi-ulangan-online
+│
+├── index.html
+├── student.html
+├── teacher.html
+├── result.html
+├── css/
+│   └── style.css
+├── js/
+│   ├── app.js
+│   ├── auth.js
+│   ├── questions.js
+│   ├── exam.js
+│   ├── timer.js
+│   ├── autosave.js
+│   ├── scoring.js
+│   ├── teacher.js
+│   ├── export.js
+│   ├── sync.js
+│   ├── firebase-config.js
+│   ├── firebase-db.js
+│   └── offline-queue.js
+├── assets/
+│   └── logo.png
+├── service-worker.js
+└── database.rules.json
+
+Jika menggunakan Cloud Functions, buat folder `functions/` untuk fungsi backend seperti validasi token, finalisasi pengumpulan, dan perhitungan nilai.
+
+### K. Pengujian Firebase Multi-Perangkat
+
+Sebelum aplikasi dinyatakan selesai, lakukan pengujian berikut:
+
+1. Jalankan aplikasi pada minimal dua perangkat siswa dan satu perangkat guru.
+2. Login siswa dengan NIS berbeda.
+3. Pastikan setiap siswa memiliki sesi berbeda.
+4. Pastikan jawaban siswa pertama tidak tercampur dengan jawaban siswa kedua.
+5. Ubah jawaban siswa pertama dan pastikan data tersimpan di Firebase.
+6. Pastikan dashboard guru memperlihatkan perubahan status secara real-time.
+7. Kumpulkan ujian siswa pertama.
+8. Pastikan hasil siswa pertama muncul di dashboard guru tanpa refresh.
+9. Unduh dokumen hasil siswa pertama dari dashboard guru.
+10. Pastikan rekapitulasi kelas memuat hasil yang sudah tersinkronisasi.
+11. Putuskan koneksi internet salah satu perangkat siswa.
+12. Pastikan jawaban tetap tersimpan secara lokal dan status berubah menjadi OFFLINE.
+13. Kumpulkan ujian saat offline dan pastikan statusnya BELUM TERSINKRONISASI.
+14. Pulihkan koneksi internet.
+15. Pastikan antrean sinkronisasi terkirim dan hasil muncul di dashboard guru.
+16. Uji pengiriman ulang untuk memastikan tidak ada hasil ganda.
+17. Pastikan siswa tidak dapat membaca kunci jawaban atau mengubah nilai final.
+18. Pastikan guru yang tidak terautentikasi tidak dapat membaca seluruh hasil siswa.
+
+### L. Target Akhir Firebase
+
+Aplikasi harus menjadi sistem Ulangan Harian Online berbasis Firebase Realtime Database yang:
+- Menyimpan data siswa dan sesi ujian secara online.
+- Menyimpan perubahan jawaban secara real-time saat online.
+- Tetap dapat menyimpan jawaban secara lokal saat offline.
+- Menyinkronkan antrean offline ketika internet kembali.
+- Mendukung banyak siswa mengerjakan secara bersamaan.
+- Menampilkan monitoring siswa secara real-time pada dashboard guru.
+- Menyimpan hasil akhir yang tervalidasi.
+- Menyediakan dokumen hasil setiap siswa yang dapat diunduh.
+- Menyediakan rekapitulasi kelas dalam PDF dan Excel.
+- Menjaga data setiap siswa agar tidak tercampur atau diakses siswa lain.
+
+**Ketentuan prioritas:** Firebase Realtime Database adalah database online utama. LocalStorage/IndexedDB hanya berfungsi sebagai penyimpanan lokal dan cadangan offline. Jangan membuat simulasi Firebase atau tombol sinkronisasi palsu. Seluruh integrasi harus benar-benar menggunakan konfigurasi Firebase proyek sekolah dan aturan keamanan yang sesuai.
+
+## 22. STANDAR PENGUJIAN TAMBAHAN FIREBASE
+
+Tambahkan pengujian Firebase ke bagian standar kualitas pada prompt ini:
+- Pastikan konfigurasi Firebase dapat diisi dengan konfigurasi proyek sekolah.
+- Pastikan koneksi Firebase berhasil sebelum status ONLINE ditampilkan.
+- Pastikan jawaban tersimpan di Firebase ketika online.
+- Pastikan perubahan data tampil real-time di dashboard guru.
+- Pastikan sesi setiap siswa terpisah.
+- Pastikan hasil pengumpulan tersimpan satu kali saja.
+- Pastikan submit offline masuk antrean lokal.
+- Pastikan antrean offline tersinkronisasi setelah koneksi pulih.
+- Pastikan status belum sinkron tidak disalahartikan sebagai hasil yang sudah diterima guru.
+- Pastikan Firebase Security Rules menolak akses yang tidak berwenang.
+- Pastikan siswa tidak dapat membaca kunci jawaban atau mengubah nilai final.
+- Pastikan dokumen PDF dan Excel dibuat dari data Firebase yang sudah tersinkronisasi.
+- Pastikan tidak ada kredensial rahasia server di front-end.

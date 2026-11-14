@@ -1,0 +1,46 @@
+{
+  "rules": {
+    ".read": false,
+    ".write": false,
+
+    "students": {
+      ".read": "auth != null && (auth.token.role === 'teacher' || auth.token.admin === true)",
+      ".write": "auth != null && (auth.token.role === 'teacher' || auth.token.admin === true)",
+      "$nis": {
+        ".read": "auth != null && (auth.token.role === 'teacher' || auth.token.nis === $nis)",
+        ".validate": "newData.hasChildren(['nis', 'nama', 'kelas', 'status'])"
+      }
+    },
+
+    "exams": {
+      "$examId": {
+        ".read": "auth != null",
+        ".write": "auth != null && (auth.token.role === 'teacher' || auth.token.admin === true)",
+        ".validate": "newData.hasChildren(['judul', 'mataPelajaran', 'materi', 'kkm', 'durasiMenit'])"
+      }
+    },
+
+    "examSecrets": {
+      ".read": "auth != null && (auth.token.role === 'teacher' || auth.token.admin === true)",
+      ".write": "auth != null && (auth.token.role === 'teacher' || auth.token.admin === true)"
+    },
+
+    "sessions": {
+      ".read": "auth != null && (auth.token.role === 'teacher' || auth.token.admin === true)",
+      "$sessionId": {
+        ".read": "auth != null && (auth.token.role === 'teacher' || data.child('studentUid').val() === auth.uid || auth.token.nis === data.child('nis').val())",
+        ".write": "auth != null && (auth.token.role === 'teacher' || ((!data.exists() || (data.child('studentUid').val() === auth.uid && data.child('status').val() !== 'submitted')) && newData.child('studentUid').val() === auth.uid))",
+        ".validate": "newData.hasChildren(['nis', 'examId', 'status', 'waktuMulai', 'batasWaktu'])"
+      }
+    },
+
+    "results": {
+      ".read": "auth != null && (auth.token.role === 'teacher' || auth.token.admin === true)",
+      "$resultId": {
+        ".read": "auth != null && (auth.token.role === 'teacher' || data.child('studentUid').val() === auth.uid || auth.token.nis === data.child('nis').val())",
+        ".write": "auth != null && (auth.token.role === 'teacher' || auth.token.admin === true)",
+        ".validate": "newData.hasChildren(['sessionId', 'examId', 'nis', 'nilai', 'kkm', 'statusKelulusan', 'statusPengumpulan'])"
+      }
+    }
+  }
+}

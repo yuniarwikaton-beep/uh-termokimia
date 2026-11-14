@@ -1,0 +1,8 @@
+{
+  "name": "Remix Aplikasi Ulangan Harian Online — Kimia",
+  "description": "Aplikasi Computer Based Test (CBT) Ulangan Harian Online Kimia SMA materi Termokimia dengan dukungan semi-online, sinkronisasi Firebase Realtime Database, serta dashboard guru real-time.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
